@@ -1,0 +1,5 @@
+; $Id: drush.info,v 1.1 2006/11/12 23:48:37 arto Exp $
+name = Drush
+description = Provides a command line shell and Unix scripting interface for Drupal.
+package = Administration
+version = HEAD
