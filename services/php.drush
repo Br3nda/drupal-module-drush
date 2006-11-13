@@ -1,5 +1,5 @@
 <?php
-// $Id: php.drush,v 1.1 2006/11/13 00:51:01 arto Exp $
+// $Id: php.drush,v 1.2 2006/11/13 01:10:34 arto Exp $
 
 /**
  * @file
@@ -62,6 +62,25 @@ function drush_php_extensions() {
     create_function('$v', 'return array($v);'),
     get_loaded_extensions());
   drush_print_table($extensions, 2);
+}
+
+/**
+ * Outputs the names of all the functions exported by the given PHP extension.
+ */
+function drush_php_functions($extension) {
+  if (empty($extension))
+    drush_die(t('Extension name must given as an argument.'));
+
+  $extension = strtolower($extension);
+  if (!extension_loaded($extension))
+    drush_die(t('The extension %ext is not loaded.', array('%ext' => $extension)));
+
+  if (DRUSH_VERBOSE)
+    drush_print(t('PHP extension functions:'));
+  $funcs = array_map(
+    create_function('$v', 'return array($v);'),
+    get_extension_funcs($extension));
+  drush_print_table($funcs, 2);
 }
 
 // TODO: action to delete old PHP session files from /tmp.
