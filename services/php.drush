@@ -1,5 +1,5 @@
 <?php
-// $Id: php.drush,v 1.2 2006/11/13 01:10:34 arto Exp $
+// $Id: php.drush,v 1.3 2006/11/13 14:27:41 arto Exp $
 
 /**
  * @file
@@ -83,6 +83,6 @@ function drush_php_functions($extension) {
   drush_print_table($funcs, 2);
 }
 
-// TODO: action to delete old PHP session files from /tmp.
-
 //////////////////////////////////////////////////////////////////////////////
+
+// TODO: action to delete old PHP session files from /tmp.
