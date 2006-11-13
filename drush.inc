@@ -1,5 +1,5 @@
 <?php
-// $Id: drush.inc,v 1.4 2006/11/13 00:18:03 arto Exp $
+// $Id: drush.inc,v 1.5 2006/11/13 00:19:49 arto Exp $
 
 /**
  * @file
@@ -170,7 +170,7 @@ function _drush_parse_metadata($file) {
                 $line = trim(preg_replace('/^\*\s*/', '', trim($line)));
                 if ($line == '@file')
                   continue;
-                if ($line == '' || $line == '*/')
+                if ($line == '' || $line == '/')
                   break;
                 $comment = trim($comment . ' ' . $line);
               }
