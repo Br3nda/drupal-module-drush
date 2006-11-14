@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.2 2006/11/14 10:39:57 arto Exp $
+// $Id: README.txt,v 1.3 2006/11/14 10:55:50 arto Exp $
 
 NOTE: this module is currently in a pre-alpha state. Come back later unless
 you're a developer and don't mind looking at the code to figure things out.
@@ -23,16 +23,15 @@ a Drupal directory:
     -u uid      Drupal user name (or numeric ID) to execute actions under.
     -r path     Drupal root directory to use (default: current directory).
 
-AVAILABLE COMMANDS
-------------------
 Use the 'help' command to get a list of available services and actions:
 
   # drush help
 
 (You can also view the command listing at administer >> help >> drush.)
 
-BUILT-IN COMMANDS
------------------
+COMMANDS
+--------
+The following built-in commands are currently available:
 
   version
     Outputs the drush version number.
@@ -174,6 +173,12 @@ current directory, not just the Drupal installation's root directory.
 However, it is likely to be useful primarily to people running a highly
 organized multi-site Drupal hosting environment, where there is only a
 single Drupal code base in a centralized location.
+
+FAQ
+---
+
+  Q: What does `drush' stand for?
+  A: The Drupal Shell.
 
 LIMITATIONS
 -----------
