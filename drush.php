@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-// $Id: drush.php,v 1.3 2006/11/14 10:12:50 arto Exp $
+// $Id: drush.php,v 1.4 2006/11/14 11:58:19 arto Exp $
 
 /**
  * @file
@@ -114,9 +114,9 @@ function _drush_get_option_info() {
     '-v'      => 'Display all output from an action (be verbose).',
     '-y'      => 'Assume that the answer to simple yes/no questions is \'yes\'.',
     '-s'      => 'Simulate actions, but do not actually perform them.',
+    '-r path' => 'Drupal root directory to use (default: current directory).',
     '-h host' => 'HTTP host name to use (for multi-site Drupal installations).',
     '-u uid'  => 'Drupal user name (or numeric ID) to execute actions under.',
-    '-r path' => 'Drupal root directory to use (default: current directory).',
   );
 }
 
