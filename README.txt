@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.6 2006/11/14 20:48:26 arto Exp $
+// $Id: README.txt,v 1.7 2006/11/14 22:44:19 arto Exp $
 
 NOTE: this module is currently in a pre-alpha state. Come back later unless
 you're a developer and don't mind looking at the code to figure things out.
@@ -150,6 +150,22 @@ The following built-in commands are currently available:
   php functions
     Outputs the names of all the functions exported by the given PHP
     extension.
+
+  sql url
+    Displays the Drupal site's database connection string.
+
+  sql version
+    Displays the MySQL or PostgreSQL server version number.
+
+  sql version client
+    Displays the MySQL or PostgreSQL client version number.
+
+  sql dump
+    Outputs the entire Drupal database in SQL format using mysqldump or
+    pg_dump.
+
+  sql query
+    Executes the given SQL query on the Drupal database.
 
   theme list
     Lists all currently installed Drupal themes.
