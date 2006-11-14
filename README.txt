@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.4 2006/11/14 11:58:19 arto Exp $
+// $Id: README.txt,v 1.5 2006/11/14 15:41:23 arto Exp $
 
 NOTE: this module is currently in a pre-alpha state. Come back later unless
 you're a developer and don't mind looking at the code to figure things out.
@@ -51,6 +51,25 @@ The following built-in commands are currently available:
 
   aliases
     Lists all defined drush aliases with their expansions.
+
+  cache clear
+    Expires all data, or all entries like a given wildcard, from the Drupal
+    page cache.
+
+  cache list
+    Lists all entries currently in the Drupal page cache.
+
+  cache get
+    Displays the contents of the Drupal cache entry of a given name.
+
+  cache set
+    Replaces the contents of the Drupal cache entry of a given name.
+
+  cache enable
+    Enables the Drupal page cache.
+
+  cache disable
+    Disables the Drupal page cache.
 
   drupal version
     Displays the currently installed Drupal core version.
@@ -198,12 +217,13 @@ FAQ
 
 LIMITATIONS
 -----------
-* At present, Windows users are SOL. Patches that add Windows support in a
-  non-detrimental (for Unix users), maintainable and well-documented fashion
-  are welcome.
 * Due to reliance on PHP's tokenizer, drush may not work well in situations
   where the PHP code for the Drupal code base is encrypted (refer to API.txt
   for more information). This is unlikely to change.
+* At present, Windows users are SOL. Patches that add Windows support in a
+  non-detrimental (for Unix users), maintainable and well-documented fashion
+  are welcome. (Of course, y'all *could* just upgrade to a real operating
+  system...)
 
 CREDITS
 -------
