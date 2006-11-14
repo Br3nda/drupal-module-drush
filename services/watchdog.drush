@@ -1,5 +1,5 @@
 <?php
-// $Id: watchdog.drush,v 1.1 2006/11/14 11:55:49 arto Exp $
+// $Id: watchdog.drush,v 1.2 2006/11/14 12:51:50 arto Exp $
 
 /**
  * @file
@@ -35,8 +35,11 @@ function drush_watchdog_tail($limit = 10, $type = NULL) {
   if (count($rows) == 0)
     drush_die(t('No log messages available.'));
 
-  if (DRUSH_VERBOSE)
+  if (DRUSH_VERBOSE) {
     $rows[] = array(t('Date'), t('Severity'), t('Type'), t('Message'), t('User'));
+    drush_print(t('Last %count watchdog log messages:', array('%count' => $limit)));
+    drush_print();
+  }
 
   drush_print_table(array_reverse($rows), 2, DRUSH_VERBOSE);
 }

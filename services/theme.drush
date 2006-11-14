@@ -1,5 +1,5 @@
 <?php
-// $Id: theme.drush,v 1.1 2006/11/13 14:32:15 arto Exp $
+// $Id: theme.drush,v 1.2 2006/11/14 12:51:50 arto Exp $
 
 /**
  * @file
@@ -17,13 +17,17 @@
  * Lists all currently installed Drupal themes.
  */
 function drush_theme_list() {
-  if (DRUSH_VERBOSE) drush_print('Installed themes:');
-
   $themes = array();
   foreach (list_themes() as $name => $theme) {
     $themes[] = array($name, (!empty($theme->status) ? 'enabled' : 'disabled'));
   }
-  drush_print_table($themes, 2);
+
+  if (DRUSH_VERBOSE) {
+    $themes = array(array(t('Name'), t('Status'))) + $themes;
+    drush_print('Installed themes:');
+    drush_print();
+  }
+  drush_print_table($themes, 2, DRUSH_VERBOSE);
 }
 
 /**
