@@ -1,5 +1,5 @@
 <?php
-// $Id: module.drush,v 1.2 2006/11/14 12:51:50 arto Exp $
+// $Id: module.drush,v 1.3 2006/11/15 09:38:12 arto Exp $
 
 /**
  * @file
@@ -88,7 +88,7 @@ function drush_module_download($name, $version = NULL) {
   if (DRUSH_VERBOSE) drush_print(t('Downloading module `%name\' using CVS...', array('%name' => $name)));
 
   $path = 'modules/' . $name;
-  if (!($result = _drush_cvs_checkout($path, 'module', $name, $version))) {
+  if (!DRUSH_SIMULATE && !($result = _drush_cvs_checkout($path, 'module', $name, $version))) {
     drush_die(t('Download of module `%name\' failed (use -v to see verbose output).', array('%name' => $name)));
   }
 

@@ -1,5 +1,5 @@
 <?php
-// $Id: theme.drush,v 1.2 2006/11/14 12:51:50 arto Exp $
+// $Id: theme.drush,v 1.3 2006/11/15 09:38:12 arto Exp $
 
 /**
  * @file
@@ -40,7 +40,7 @@ function drush_theme_download($name, $version = NULL) {
   if (DRUSH_VERBOSE) drush_print(t('Downloading theme `%name\' using CVS...', array('%name' => $name)));
 
   $path = 'themes/' . $name;
-  if (!($result = _drush_cvs_checkout($path, 'theme', $name, $version))) {
+  if (!DRUSH_SIMULATE && !($result = _drush_cvs_checkout($path, 'theme', $name, $version))) {
     drush_die(t('Download of theme `%name\' failed (use -v to see verbose output).', array('%name' => $name)));
   }
 
