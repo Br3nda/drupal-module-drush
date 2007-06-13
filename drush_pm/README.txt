@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.1 2007/06/11 13:56:00 frando Exp $
+// $Id: README.txt,v 1.2 2007/06/13 11:21:15 frando Exp $
 
 DESCRIPTION
 -----------
@@ -12,8 +12,8 @@ Run "drush help pm install" and "drush help pm update" to see supported command 
 REQUIREMENTS
 ------------
 
-No special requirements on unix-like systems. 
-drush_pm uses  wget, tar and gzip, so if you're trying to use drush_pm on windows, you have to install 
+No special requirements on unix-like systems.
+drush_pm uses  wget, tar and gzip, so if you're trying to use drush_pm on windows, you have to install
 these binaries before, for example from GnuWin32 (http://gnuwin32.sourceforge.net/).
 
 ------------

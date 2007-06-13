@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.1 2007/06/11 13:56:00 frando Exp $
+// $Id: README.txt,v 1.2 2007/06/13 11:21:15 frando Exp $
 
 DESCRIPTION
 -----------
