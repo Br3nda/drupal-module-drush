@@ -1,6 +1,6 @@
-; $Id: drush_tools.info,v 1.2 2007/06/13 11:21:15 frando Exp $
+; $Id: drush_tools.info,v 1.3 2007/06/18 23:50:49 dww Exp $
 name = drush Toolbox
 description = Provides several tools that are aimed at site administrators and developers.
 package = drush
 dependencies = drush
-version = "$Name:  $"
+
