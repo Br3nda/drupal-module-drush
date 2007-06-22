@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-// $Id: drush.php,v 1.10 2007/06/13 13:50:02 frando Exp $
+// $Id: drush.php,v 1.11 2007/06/22 16:41:57 frando Exp $
 
 /**
  * @file
@@ -120,14 +120,14 @@ function _drush_locate_root_moveup($path) {
  */
 function _drush_bootstrap_drupal() {
   require_once DRUSH_DRUPAL_BOOTSTRAP;
-  require_once drupal_get_path('module', 'drush') . '/drush.inc';;
 
   if (($conf_path = conf_path()) && !file_exists("./$conf_path/settings.php")) {
     drush_die("Unable to load Drupal configuration from $conf_path/.");
   }
 
   drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
-
+  require_once drupal_get_path('module', 'drush') . '/drush.inc';;
+  
   return TRUE;
 }
 
