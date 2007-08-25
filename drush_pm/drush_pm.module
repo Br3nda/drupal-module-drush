@@ -1,5 +1,5 @@
 <?php
-// $Id: drush_pm.module,v 1.7 2007/08/19 12:01:55 weitzman Exp $
+// $Id: drush_pm.module,v 1.8 2007/08/25 14:08:33 weitzman Exp $
 
 /**
  * @file
@@ -101,7 +101,9 @@ function drush_pm_install_project($project, $info, $path = '.') {
   $filename = array_pop($filename);
 
   // Download it.
-  drush_shell_exec("wget " .$info['download_link']);
+  if (!drush_shell_exec("wget " .$info['download_link'])) {
+    drush_shell_exec("curl -O " .$info['download_link']);
+  }
 
 
   if (file_exists($path . $filename) || DRUSH_SIMULATE) {
