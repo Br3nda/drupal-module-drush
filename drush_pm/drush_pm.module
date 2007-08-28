@@ -1,5 +1,5 @@
 <?php
-// $Id: drush_pm.module,v 1.9 2007/08/26 03:58:02 weitzman Exp $
+// $Id: drush_pm.module,v 1.10 2007/08/28 03:19:28 weitzman Exp $
 
 /**
  * @file
@@ -167,6 +167,10 @@ function drush_pm_update() {
         break;
       case UPDATE_STATUS_NOT_CURRENT:
         $status = t('Update available');
+        $updateable[$project['name']] = $project;
+        break;
+      case UPDATE_STATUS_NOT_SECURE:
+        $status = t('SECURITY UPDATE available');
         $updateable[$project['name']] = $project;
         break;
       default:
