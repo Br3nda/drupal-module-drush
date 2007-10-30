@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.4 2007/08/25 14:08:33 weitzman Exp $
+// $Id: README.txt,v 1.5 2007/10/30 16:53:49 weitzman Exp $
 
 DESCRIPTION
 -----------
@@ -11,7 +11,7 @@ Run "drush help pm install" and "drush help pm update" to see supported command 
 
 REQUIREMENTS
 ------------
-drush_pm requires update_status.module, version 5.x-2.0-beta or above.
+drush_pm requires update_status.module, version 5.x-2 or above.
 No other special requirements on unix-like systems.
 drush_pm uses  wget (or curl), tar and gzip, so if you're trying to use drush_pm on Windows, you have to install
 these binaries before, for example from GnuWin32 (http://gnuwin32.sourceforge.net/).
