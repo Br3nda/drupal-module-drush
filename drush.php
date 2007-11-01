@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.12 2007/08/28 17:40:26 weitzman Exp $
+// $Id: drush.php,v 1.13 2007/11/01 15:10:24 weitzman Exp $
 
 /**
  * @file
@@ -57,7 +57,7 @@ function drush_bootstrap($argc, $argv) {
   chdir(DRUSH_DRUPAL_ROOT);
   // Bootstrap Drupal.
   _drush_bootstrap_drupal();
-
+  
   // Login the specified user (if given).
   if (DRUSH_USER) {
     _drush_login(DRUSH_USER);
@@ -125,10 +125,17 @@ function _drush_bootstrap_drupal() {
     drush_die("Unable to load Drupal configuration from $conf_path/.");
   }
 
+  // The bootstrap can fail silently, so we catch that in a shutdown function.
+  register_shutdown_function('drush_shutdown');
   drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
-  require_once drupal_get_path('module', 'drush') . '/drush.inc';;
-  
-  return TRUE;
+  require_once drupal_get_path('module', 'drush') . '/drush.inc';
+}
+
+function drush_shutdown() {
+  if (!function_exists('drupal_set_content')) {
+    // can't use drush.inc function here.
+    die("Drush: Bootstrap failed. Perhaps you need to pass a valid value for the -l argument.\n");
+  }
 }
 
 /**
