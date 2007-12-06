@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.13 2007/11/01 15:10:24 weitzman Exp $
+// $Id: drush.php,v 1.14 2007/12/06 17:00:58 weitzman Exp $
 
 /**
  * @file
@@ -122,7 +122,8 @@ function _drush_bootstrap_drupal() {
   require_once DRUSH_DRUPAL_BOOTSTRAP;
 
   if (($conf_path = conf_path()) && !file_exists("./$conf_path/settings.php")) {
-    drush_die("Unable to load Drupal configuration from $conf_path/.");
+    // drush_die() is not available yet.
+    die("Unable to load Drupal configuration from $conf_path/.\n");
   }
 
   // The bootstrap can fail silently, so we catch that in a shutdown function.
