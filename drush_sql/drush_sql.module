@@ -1,5 +1,5 @@
 <?php
-// $Id: drush_sql.module,v 1.4 2007/08/27 20:19:02 weitzman Exp $
+// $Id: drush_sql.module,v 1.5 2007/12/06 16:34:10 weitzman Exp $
 
 /**
  * @file
@@ -16,7 +16,7 @@ function drush_sql_help($section) {
     case 'drush:sql query':
       return t('Usage: drush [options] sql query <query> <skip>...\n\n<query> is a SQL statement, which can alternatively be passed via STDIN. Optional - send 1 for <skip> if you wish to omit disposable tables like cache*, search*, etc. Any additional arguments are passed to the mysql command directly.');
     case 'drush:sql load':
-      return t('Usage: drush [options] sql load <source_dir> <target_dir> <skip>. <source_dir> and <target_dir> are names of directories under \'sites\'. These determine from where and to where you want your database copied. Optional - send 1 for <skip> if you wish to omit disposable tables like cache*, search*, etc. Any additional arguments are passed to the mysql command directly.');;
+      return t('Usage: drush [options] sql load <source_dir> <target_dir> <skip>. <source_dir> and <target_dir> are names of directories under \'sites\'. These determine from where and to where you want your database copied. Optional: specify 1 for <skip> if you wish to omit disposable tables like cache*, search*, etc. Any additional arguments are passed to the mysqldump command directly.');;
   }
 }
 
