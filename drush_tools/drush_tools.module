@@ -1,5 +1,5 @@
 <?php
-// $Id: drush_tools.module,v 1.4 2007/11/28 15:55:35 weitzman Exp $
+// $Id: drush_tools.module,v 1.5 2007/12/13 16:00:10 weitzman Exp $
 
 /**
  * @file
@@ -70,7 +70,7 @@ function drush_tools_cache_clear() {
  *
  * @return void
  **/
-function drush_tools_sync($destination, $source = DRUSH_DRUPAL_ROOT) {
+function drush_tools_sync($source = DRUSH_DRUPAL_ROOT, $destination) {
   $options = '-az';
   if (DRUSH_VERBOSE) {
     drush_print(t('Executing: !cmd', array('!cmd' => $exec)));
