@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.16 2008/01/23 12:26:56 weitzman Exp $
+// $Id: drush.php,v 1.17 2008/01/23 12:39:36 weitzman Exp $
 
 /**
  * @file
@@ -31,7 +31,7 @@ exit(drush_bootstrap($GLOBALS['argc'], $GLOBALS['argv']));
  *   and false if being run through cgi or mod_php.
  */
 function drush_verify_cli() {
-  return (php_isapi_name() == 'cli');
+  return (php_sapi_name() == 'cli');
 }
 
 function drush_load_rc() {
