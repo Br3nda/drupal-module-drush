@@ -1,4 +1,4 @@
-; $Id: drush.info,v 1.6 2007/06/18 22:53:37 dww Exp $
-name = drush
+; $Id: drush.info,v 1.7 2008/01/23 12:54:06 weitzman Exp $
+name = Drush
 description = "drush (the drupal shell) provides a command line interface for Drupal."
 package = drush

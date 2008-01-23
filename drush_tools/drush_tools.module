@@ -1,5 +1,5 @@
 <?php
-// $Id: drush_tools.module,v 1.5 2007/12/13 16:00:10 weitzman Exp $
+// $Id: drush_tools.module,v 1.6 2008/01/23 12:54:06 weitzman Exp $
 
 /**
  * @file
@@ -42,7 +42,7 @@ function drush_tools_drush_command() {
   );
   $items['sync'] = array(
     'callback' => 'drush_tools_sync',
-    'description' => 'Rsync the Drupal tree to any <destination> using ssh'
+    'description' => 'Rsync the Drupal tree to any [destination] using ssh'
   );
   return $items;
 }
