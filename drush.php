@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.19 2008/02/01 21:26:48 weitzman Exp $
+// $Id: drush.php,v 1.20 2008/02/01 21:52:40 weitzman Exp $
 
 /**
  * @file
@@ -108,7 +108,9 @@ function drush_bootstrap($argc, $argv) {
    * in the drupal bootstrap process, and changes in settings.php would wipe out the drushrc.php
    * settings
    */
-  $conf = array_merge($conf, (array) $override);
+  if (is_array($override)) {
+    $conf = array_merge($conf, $override);
+  }
     
   // Login the specified user (if given).
   if (DRUSH_USER) {
