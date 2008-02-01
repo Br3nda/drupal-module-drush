@@ -1,24 +1,10 @@
 <?php
-// $Id: drush.inc,v 1.14 2007/06/13 13:50:02 frando Exp $
+// $Id: drush.inc,v 1.15 2008/02/01 21:56:08 weitzman Exp $
 
 /**
  * @file
  * The drush API implementation and helpers.
  */
-
-/**
- * Returns the drush version (parsed from drush.info).
- */
-function drush_version() {
-  static $version;
-  if (isset($version) && $version) {
-    return $version;
-  }
-
-  $ini = parse_ini_file(drupal_get_path('module','drush') . '/drush.info', FALSE);
-  $version = $ini['version'];
-  return $version;
-}
 
 /**
  * Dispatch a given set of commands.
