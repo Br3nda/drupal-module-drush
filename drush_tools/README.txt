@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.2 2007/06/13 11:21:15 frando Exp $
+// $Id: README.txt,v 1.3 2008/02/11 20:57:24 weitzman Exp $
 
 DESCRIPTION
 -----------
@@ -10,4 +10,4 @@ drush.module
 
 ------------
 Written by Franz Heinzmann (frando) <http://unbiskant.org>.
-No warranties of any kind.
+Expanded by Moshe Weitzman - http://drupal.org/moshe
