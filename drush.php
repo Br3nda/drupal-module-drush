@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.20 2008/02/01 21:52:40 weitzman Exp $
+// $Id: drush.php,v 1.21 2008/02/11 20:48:31 weitzman Exp $
 
 /**
  * @file
@@ -61,7 +61,7 @@ function drush_load_rc() {
 }
 
 function drush_bootstrap($argc, $argv) {
-  global $args, $override;
+  global $args, $override, $conf;
 
   // Parse command line options and arguments.
   $args = drush_parse_args($argv, array('h', 'u', 'r', 'l'));
