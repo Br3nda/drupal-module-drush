@@ -1,5 +1,5 @@
 <?php
-// $Id: drush_pm.module,v 1.15 2008/01/08 04:28:40 weitzman Exp $
+// $Id: drush_pm.module,v 1.16 2008/02/13 15:43:10 weitzman Exp $
 
 /**
  * @file
@@ -58,6 +58,20 @@ function drush_pm_drush_command() {
     'description' => 'Update your modules'
   );
   return $items;
+}
+
+function drush_pm_requirements($phase) {
+  switch ($phase) {
+    case 'runtime':
+    $package_handlers = module_invoke_all('drush_pm_package_handler');
+      $requirements['handlers'] = array(
+        'title' => t('Drush: Package handler'),
+        'description' => t('In order to use the Drush package manager module to install/update projects, you must install one of its package handler modules.'),
+        'severity' => empty($package_handlers) ? REQUIREMENT_ERROR : REQUIREMENT_OK,
+      );
+      break;
+  }
+  return is_array($requirements) ? $requirements : array();
 }
 
 /**
