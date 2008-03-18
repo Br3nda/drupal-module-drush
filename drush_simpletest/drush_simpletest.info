@@ -1,0 +1,5 @@
+; $Id: drush_simpletest.info,v 1.1 2008/03/18 02:47:06 weitzman Exp $
+name = Drush simpletest runner
+description = Run unit tests.
+package = drush
+dependencies = drush simpletest
