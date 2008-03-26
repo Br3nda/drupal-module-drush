@@ -1,6 +1,8 @@
-; $Id: drush_pm_cvs.info,v 1.1 2008/01/08 04:30:19 weitzman Exp $
+; $Id: drush_pm_cvs.info,v 1.2 2008/03/26 03:03:56 weitzman Exp $
 name = drush Package Manager CVS Support
 description = Allows drush to install and update modules using CVS.
 package = drush
-dependencies = update_status drush drush_pm
-
+dependencies[] = update
+dependencies[] = drush
+dependencies[] = drush_pm
+core = 6.x

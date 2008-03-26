@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.14 2008/02/11 20:57:24 weitzman Exp $
+// $Id: README.txt,v 1.15 2008/03/26 03:03:56 weitzman Exp $
 
 DESCRIPTION
 -----------
@@ -69,7 +69,7 @@ If you get tired of typing options all the time, you can add them to your drush.
 
 REQUIREMENTS
 ------------
-This version of drush is designed for Drupal 5.x running on a Unix/Linux
+This version of drush is designed for Drupal 6.x running on a Unix/Linux
 platform.
 
 * To use drush from the command line, you'll need a CLI-mode capable PHP

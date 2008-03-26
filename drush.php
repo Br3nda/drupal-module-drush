@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.22 2008/03/26 01:40:05 weitzman Exp $
+// $Id: drush.php,v 1.23 2008/03/26 03:03:56 weitzman Exp $
 
 /**
  * @file
@@ -96,6 +96,7 @@ function drush_bootstrap($argc, $argv) {
   $_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME'] = $_SERVER['PHP_SELF'];
   $_SERVER['REMOTE_ADDR'] = NULL;
   $_SERVER['REQUEST_METHOD'] = NULL;
+  $_SERVER['SERVER_SOFTWARE'] = NULL;
 
   // Change to Drupal root dir.
   chdir(DRUSH_DRUPAL_ROOT);
@@ -315,4 +316,3 @@ function drush_convert_path($path) {
   return str_replace('\\','/', $path);
 }
 
-?>
