@@ -1,5 +1,5 @@
 <?php
-// $Id: example.drushrc.php,v 1.2.2.1 2008/03/30 04:29:28 weitzman Exp $
+// $Id: example.drushrc.php,v 1.2.2.2 2008/03/30 15:13:07 weitzman Exp $
 
 /*
  * Examples of valid statements for a drushrc.php file. Use this file to cut down on
@@ -19,11 +19,14 @@
 // $options['v'] = 1; 
 
 /*
- * Uncomment and customize this list with your own tables. This is the 
+ * Uncomment and customize this associative array with your own tables. This is the 
  * list of tables that are omitted by the 'sql dump' and 'sql load' 
- * commands when a skip is requested.
+ * commands when a skip is requested. You may add new tables to the existing array or add a new 
+ * element.
  */
-# $options['skip-tables'] = array('accesslog', 'cache', 'cache_filter', 'cache_menu', 'cache_page', 'history', 'search_dataset', 'search_index', 'search_total', 'sessions', 'watchdog');
+$options['skip-tables'] = array(
+ 'common' => array('accesslog', 'cache', 'cache_filter', 'cache_menu', 'cache_page', 'history', 'search_dataset', 'search_index', 'search_total', 'sessions', 'watchdog'),
+);
 
 // use cvs checkouts when installing modules
 // an example of a command specific argument being set in drushrc.php
