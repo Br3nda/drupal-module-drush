@@ -1,5 +1,5 @@
 <?php
-// $Id: drush_simpletest.module,v 1.2 2008/03/26 03:03:57 weitzman Exp $
+// $Id: drush_simpletest.module,v 1.3 2008/04/16 20:39:10 weitzman Exp $
 
 /**
  * @file
@@ -52,7 +52,15 @@ function drush_test_list() {
     include_once($file);
   }
   $classes = array_diff(get_declared_classes(), $existing_classes);
-  return implode("\n", $classes). "\n";
+  $rows[] = array(t('Class'), t('Name'), t('Description'));
+  foreach ($classes as $class) {
+    $tmp = new $class;
+    if (method_exists($tmp, 'get_info')) {
+      $info =  $tmp->get_info();
+      $rows[] = array($class, $info['name'], truncate_utf8($info['desc'], 30, TRUE, TRUE));
+    }
+  }
+  return drush_print_table($rows, 0, TRUE);
 }
 
 
