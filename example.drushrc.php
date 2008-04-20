@@ -1,5 +1,5 @@
 <?php
-// $Id: example.drushrc.php,v 1.4 2008/03/30 15:07:01 weitzman Exp $
+// $Id: example.drushrc.php,v 1.5 2008/04/20 21:19:14 weitzman Exp $
 
 /*
  * Examples of valid statements for a drushrc.php file. Use this file to cut down on
@@ -19,7 +19,7 @@
 // $options['v'] = 1; 
 
 /*
- * Uncomment and customize this associative array with your own tables. This is the 
+ * Customize this associative array with your own tables. This is the 
  * list of tables that are omitted by the 'sql dump' and 'sql load' 
  * commands when a skip is requested. You may add new tables to the existing array or add a new 
  * element.
