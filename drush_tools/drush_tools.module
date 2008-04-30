@@ -1,5 +1,5 @@
 <?php
-// $Id: drush_tools.module,v 1.6.2.2 2008/03/29 21:04:13 weitzman Exp $
+// $Id: drush_tools.module,v 1.6.2.3 2008/04/30 21:12:15 weitzman Exp $
 
 /**
  * @file drush_trools.sql
@@ -75,7 +75,7 @@ function drush_tools_cache_clear() {
 function drush_tools_sync($source, $destination) {
   // Local paths are relative to Drupal root
   if (!strstr($source, ':')) {
-    $source = DRUSH_DRUPAL_ROOT. ":";
+    $source = DRUSH_DRUPAL_ROOT. "/$source";
   }
   if (!strstr($destination, ':')) {
     $destination = DRUSH_DRUPAL_ROOT. "/$destination";
