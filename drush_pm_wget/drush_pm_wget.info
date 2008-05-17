@@ -1,5 +1,5 @@
-; $Id: drush_pm_wget.info,v 1.2 2008/03/26 03:03:57 weitzman Exp $
-name = drush Package Manager wget Support
+; $Id: drush_pm_wget.info,v 1.3 2008/05/17 03:52:33 weitzman Exp $
+name = Drush package manager wget support
 description = Allows drush to install and update modules using wget or curl.
 package = drush
 dependencies[] = update

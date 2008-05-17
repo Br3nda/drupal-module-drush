@@ -1,5 +1,5 @@
-; $Id: drush_pm.info,v 1.4 2008/03/26 03:03:56 weitzman Exp $
-name = drush Package Manager
+; $Id: drush_pm.info,v 1.5 2008/05/17 03:52:32 weitzman Exp $
+name = Drush package manager
 description = Allows you to install and update modules from the command line.
 package = drush
 dependencies[] = update
