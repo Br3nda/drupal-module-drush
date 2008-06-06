@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.23 2008/03/26 03:03:56 weitzman Exp $
+// $Id: drush.php,v 1.22.2.1 2008/06/06 01:17:30 weitzman Exp $
 
 /**
  * @file
@@ -31,6 +31,10 @@ exit(drush_bootstrap($GLOBALS['argc'], $GLOBALS['argv']));
  *   and false if being run through cgi or mod_php.
  */
 function drush_verify_cli() {
+  if (php_sapi_name() == 'cgi') {
+    return (is_numeric($_SERVER['argc']) && $_SERVER['argc'] > 0);
+  }
+  
   return (php_sapi_name() == 'cli');
 }
 
@@ -96,7 +100,6 @@ function drush_bootstrap($argc, $argv) {
   $_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME'] = $_SERVER['PHP_SELF'];
   $_SERVER['REMOTE_ADDR'] = NULL;
   $_SERVER['REQUEST_METHOD'] = NULL;
-  $_SERVER['SERVER_SOFTWARE'] = NULL;
 
   // Change to Drupal root dir.
   chdir(DRUSH_DRUPAL_ROOT);
@@ -316,3 +319,4 @@ function drush_convert_path($path) {
   return str_replace('\\','/', $path);
 }
 
+?>
