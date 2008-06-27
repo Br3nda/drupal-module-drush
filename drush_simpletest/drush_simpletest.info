@@ -1,7 +1,8 @@
-; $Id: drush_simpletest.info,v 1.2 2008/03/26 03:03:57 weitzman Exp $
+; $Id: drush_simpletest.info,v 1.3 2008/06/27 04:32:15 weitzman Exp $
 name = Drush simpletest runner
 description = Run unit tests.
-package = drush
+package = Drush
 dependencies[] = drush
 dependencies[] = simpletest
-core = 6.x
+core = 7.x
+files[] = drush_simpletest.module
