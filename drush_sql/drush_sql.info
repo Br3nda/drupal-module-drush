@@ -1,6 +1,7 @@
-; $Id: drush_sql.info,v 1.4 2008/08/11 00:34:49 weitzman Exp $
+; $Id: drush_sql.info,v 1.5 2008/08/11 00:52:11 weitzman Exp $
 name = Drush SQL commands
 description = Provides several tools for database query and management
 package = Drush
 dependencies[] = drush
-core = 6.x
+core = 7.x
+files[] = drush_sql.module
