@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.25 2008/06/27 04:32:15 weitzman Exp $
+// $Id: drush.php,v 1.24.2.1 2008/09/04 16:26:16 weitzman Exp $
 
 /**
  * @file
@@ -98,7 +98,7 @@ function drush_bootstrap($argc, $argv) {
   $_SERVER['HTTP_HOST'] = $drupal_base_url['host'];
   $_SERVER['PHP_SELF'] = $drupal_base_url['path'].'/index.php';
   $_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME'] = $_SERVER['PHP_SELF'];
-  $_SERVER['REMOTE_ADDR'] = NULL;
+  $_SERVER['REMOTE_ADDR'] = '';
   $_SERVER['REQUEST_METHOD'] = NULL;
   $_SERVER['SERVER_SOFTWARE'] = NULL;
 
@@ -207,7 +207,7 @@ function drush_shutdown() {
  */
 function _drush_login($drush_user) {
   global $user;
-  $user = module_invoke('user', 'load', is_numeric($drush_user) ? array('uid' => $drush_user) : array('name' => $drush_user));
+  $user = user_load(is_numeric($drush_user) ? array('uid' => $drush_user) : array('name' => $drush_user));
 
   if (empty($user)) {
     if (is_numeric($drush_user)) {
