@@ -1,5 +1,5 @@
 <?php
-// $Id: drush_sql.module,v 1.13 2008/09/27 02:42:48 weitzman Exp $
+// $Id: drush_sql.module,v 1.14 2008/10/14 01:58:32 weitzman Exp $
 
 /**
  * @file
@@ -56,8 +56,8 @@ function drush_sql_drush_command() {
  * Command callback. Displays the Drupal site's database connection string.
  */
 function drush_sql_url() {
-  global $databases;
-  print_r($databases['default']['default']);
+  $drush_connection = Database::getConnectionInfo();
+  print_r($drush_connection['default']);
 }
 
 /**
