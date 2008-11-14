@@ -1,5 +1,5 @@
 <?php
-// $Id: example.drushrc.php,v 1.2.2.3 2008/04/20 21:18:48 weitzman Exp $
+// $Id: example.drushrc.php,v 1.2.2.4 2008/11/14 22:07:34 grugnog Exp $
 
 /*
  * Examples of valid statements for a drushrc.php file. Use this file to cut down on
@@ -14,6 +14,9 @@
 
 // specify a particular multisite
 // $options['l'] = 'http://example.com/subir';
+
+// specify your Drupal core base directory (useful if you use symlinks)
+// $options['r'] = '/home/USER/workspace/drupal-5';
 
 // enable verbose mode
 // $options['v'] = 1; 
