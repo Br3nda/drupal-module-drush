@@ -1,5 +1,5 @@
 <?php
-// $Id: drush_tools.module,v 1.14 2008/09/26 14:41:46 weitzman Exp $
+// $Id: drush_tools.module,v 1.15 2008/11/15 04:39:45 weitzman Exp $
 
 /**
  * @file drush_trools.sql
@@ -115,7 +115,7 @@ function drush_tools_watchdog_show($limit = 10, $type = NULL) {
       format_date($watchdog->timestamp, 'small'),
       $severities[$watchdog->severity],
       t($watchdog->type),
-      truncate_utf8(strip_tags(_dblog_format_message($watchdog)), 68, FALSE, FALSE),
+      truncate_utf8(decode_entities(strtr($watchdog->message, unserialize($watchdog->variables))), 68, FALSE, FALSE),
       theme('username', $watchdog),
     );
   }
