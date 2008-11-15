@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.28 2008/10/10 15:30:05 weitzman Exp $
+// $Id: drush.php,v 1.29 2008/11/15 04:07:35 weitzman Exp $
 
 /**
  * @file
@@ -110,6 +110,7 @@ function drush_bootstrap($argc, $argv) {
   $_SERVER['REMOTE_ADDR'] = '';
   $_SERVER['REQUEST_METHOD'] = NULL;
   $_SERVER['SERVER_SOFTWARE'] = NULL;
+  $_SERVER['HTTP_USER_AGENT'] = NULL;
 
   // Change to Drupal root dir.
   chdir(DRUSH_DRUPAL_ROOT);
