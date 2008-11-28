@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.22.2.2 2008/11/15 00:52:09 grugnog Exp $
+// $Id: drush.php,v 1.22.2.3 2008/11/28 17:16:34 adrian Exp $
 
 /**
  * @file
@@ -57,7 +57,7 @@ function drush_load_rc() {
       define('DRUSH_CONFIG', $config);
       require_once($config);
       if (is_array($options)) {
-        $args['options'] = array_merge($args['options'], $options); # Sets all the default options for drush
+        $args['options'] = array_merge($options, $args['options']); # Sets all the default options for drush
       }
       break;
     }
