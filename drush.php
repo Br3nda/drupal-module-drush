@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.24.2.4 2008/11/28 17:18:20 adrian Exp $
+// $Id: drush.php,v 1.24.2.5 2008/12/06 14:56:28 weitzman Exp $
 
 /**
  * @file
@@ -74,7 +74,7 @@ function drush_bootstrap($argc, $argv) {
   global $args, $override, $conf;
 
   // Parse command line options and arguments.
-  $args = drush_parse_args($argv, array('h', 'u', 'r', 'l'));
+  $args = drush_parse_args($argv, array('h', 'u', 'r', 'l', 'c'));
   
   // We use PWD if available because getcwd() resolves symlinks, which
   // could take us outside of the Drupal root, making it impossible to find. 
