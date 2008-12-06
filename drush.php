@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-// $Id: drush.php,v 1.22.2.3 2008/11/28 17:16:34 adrian Exp $
+// $Id: drush.php,v 1.22.2.4 2008/12/06 14:57:19 weitzman Exp $
 
 /**
  * @file
@@ -68,7 +68,7 @@ function drush_bootstrap($argc, $argv) {
   global $args, $override, $conf;
 
   // Parse command line options and arguments.
-  $args = drush_parse_args($argv, array('h', 'u', 'r', 'l'));
+  $args = drush_parse_args($argv, array('h', 'u', 'r', 'l', 'c'));
 
   // Load .drushrc file if available. Allows you to provide defaults for options and variables.
   drush_load_rc();
