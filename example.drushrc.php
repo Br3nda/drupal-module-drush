@@ -1,25 +1,44 @@
 <?php
-// $Id: example.drushrc.php,v 1.6 2008/11/14 22:26:49 grugnog Exp $
+// $Id: example.drushrc.php,v 1.7 2008/12/06 21:34:56 weitzman Exp $
 
 /*
  * Examples of valid statements for a drushrc.php file. Use this file to cut down on
  * typing of options and avoid mistakes.
  *
- * Rename this file to drushrc.php and
- * optionally copy it to one of 5 convenient places. See drush_load_rc().
+ * Rename this file to drushrc.php and optionally copy it to one of
+ * four convenient places, listed below in order of precedence:
+ *
+ * - Drupal site folder.
+ * - Drupal installation root.
+ * - User Home folder (i.e. ~/.drushrc.php).
+ * - Drush installation folder.
+ *
+ * If a configuration file is found in any of the above locations, it
+ * will be loaded and merged with other configuration files in the
+ * search list.
+ *
+ * Alternately, copy it to any location and load it with the --config (-c) option.
+ * Note that this preempts loading any other configuration files!
  */
 
 // enable simulation mode
-// $options['s'] = 1;
+# $options['s'] = 1;
 
 // specify a particular multisite
-// $options['l'] = 'http://example.com/subir';
+# $options['l'] = 'http://example.com/subir';
 
 // specify your Drupal core base directory (useful if you use symlinks)
-// $options['r'] = '/home/USER/workspace/drupal-7';
+# $options['r'] = '/home/USER/workspace/drupal-6';
+
+// specify additional directories to search for *.drush.inc files
+# $options['i'] = 'sites/default:profiles/myprofile'; 
 
 // enable verbose mode
-// $options['v'] = 1; 
+# $options['v'] = 1; 
+
+// Set search path for drush command files
+// Use POSIX path separator (':')
+# $options['i'] = '/path/to/command_files';
 
 /*
  * Customize this associative array with your own tables. This is the 
