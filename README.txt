@@ -1,4 +1,4 @@
-// $Id: README.txt,v 1.16 2008/12/06 21:34:56 weitzman Exp $
+// $Id: README.txt,v 1.17 2008/12/07 03:29:15 weitzman Exp $
 
 DESCRIPTION
 -----------
@@ -122,4 +122,5 @@ CREDITS
 -------
 Originally developed by Arto Bendiken <http://bendiken.net/> for Drupal 4.7.
 Redesigned by Franz Heinzmann (frando) <http://unbiskant.org/> in May 2007 for Drupal 5.
-Further refined by Moshe Weitzman <http://drupal.org/moshe>
+Maintained by Moshe Weitzman <http://drupal.org/moshe> with much help from 
+Grugnog2, Adrian Rossouw, and Vingborg.

@@ -1,5 +1,5 @@
 <?php
-// $Id: drush.inc,v 1.1 2008/12/06 21:34:58 weitzman Exp $
+// $Id: drush.inc,v 1.2 2008/12/07 03:29:15 weitzman Exp $
 
 /**
  * @file
@@ -182,7 +182,7 @@ function drush_get_options() {
   $options['-s, --simulate']           = dt("Simulate all relevant actions (don't actually change the system)");
   $options['-i, --include']            = dt("A list of paths to search for drush commands");
   $options['-c, --config']             = dt("Specify a config file to use. See example.drushrc.php");
-  $options['-u, --user']               = dt("Specify a user to login with");
+  $options['-u, --user']               = dt("Specify a user to login with. May be a name or a number.");
   return $options;
 }
 

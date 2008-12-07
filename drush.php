@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-// $Id: drush.php,v 1.33 2008/12/06 21:34:56 weitzman Exp $
+// $Id: drush.php,v 1.34 2008/12/07 03:29:15 weitzman Exp $
 
 /**
  * @file
@@ -89,8 +89,6 @@ function drush_bootstrap($argc, $argv) {
       if (DRUSH_USER) {
         drush_drupal_login(DRUSH_USER);
       }
-
-      // Now we can use all of Drupal.
     }
   }
 
