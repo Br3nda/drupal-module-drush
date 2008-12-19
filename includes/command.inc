@@ -1,5 +1,5 @@
 <?php
-// $Id: command.inc,v 1.2 2008/12/07 03:29:15 weitzman Exp $
+// $Id: command.inc,v 1.3 2008/12/19 06:16:17 weitzman Exp $
 
 /**
  * @file
@@ -192,8 +192,8 @@ function drush_commandfile_list() {
   if (empty($list)) {
     $searchpath = array();
 
-    // Standard commands shipping with drush
-    $searchpath[] = dirname(__FILE__) . '/../includes';
+    // Core commands shipping with drush
+    $searchpath[] = dirname(__FILE__);
 
     // User commands, residing i ~/.drush
     if (!empty($_SERVER['HOME'])) {
