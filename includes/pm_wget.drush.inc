@@ -1,5 +1,5 @@
 <?php
-// $Id: pm_wget.drush.inc,v 1.1 2008/12/19 06:16:18 weitzman Exp $
+// $Id: pm_wget.drush.inc,v 1.2 2008/12/19 14:27:32 weitzman Exp $
 
 /**
  * @file Drush PM Wget extension
@@ -31,7 +31,6 @@ function pm_wget_drush_pm_package_handler() {
  * @param $path The path to install the module to.
  */
 function drush_pm_wget_install_project($project, $info, $path = '.') {
-
   drush_op('chdir', $path);
 
   drush_verbose("Downloading project $project ...");
@@ -71,7 +70,8 @@ function drush_pm_wget_install_project($project, $info, $path = '.') {
   // Remove the tarball
   drush_op('unlink', $filename);
 
-  if (!is_dir($path . $project) && !DRUSH_SIMULATE) {
+  // TODO: giving error for non drupal downloads
+  if (FALSE && !is_dir($path . $project) && !DRUSH_SIMULATE) {
     return drush_error("Error. Downloaded file $filename couldn't be untarred correctly");
   }
   else {

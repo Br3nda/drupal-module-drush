@@ -1,5 +1,5 @@
 <?php
-// $Id: core_commands.drush.inc,v 1.4 2008/12/19 13:23:54 weitzman Exp $
+// $Id: core_commands.drush.inc,v 1.5 2008/12/19 14:27:32 weitzman Exp $
 
 /**
  * @file
@@ -168,12 +168,12 @@ function core_commands_cache_clear() {
 
 function core_commands_dl_destination() {
   // If a URI is provided then we install to that specific site, otherwise we install to sites/all/modules
-  if (DRUSH_URI) {
+  if (defined(DRUSH_URI)) {
     $path = conf_path();
     return DRUSH_DRUPAL_ROOT .'/'. $path .'/modules/';
   }
   
-  if (DRUSH_DRUPAL_ROOT) { // !file_exists($modulepath)
+  if (defined(DRUSH_DRUPAL_ROOT)) { // !file_exists($modulepath)
     $modulepath = DRUSH_DRUPAL_ROOT . '/sites/all/modules/';
   }
   else {
@@ -232,8 +232,9 @@ function core_commands_dl($full_project) {
     $project = $package['name'];
     $url = UPDATE_DEFAULT_URL . "/$project/". $major_version;
     if ($xml = simplexml_load_file($url)) {
-      $release = $version ? $xml->xpath("releases/release[name=$version]") : $xml->releases->release;
-      print_r($release);
+      $xpath = "/project/releases/release[version='$version']";
+      $release = $package['version'] ? $xml->xpath($xpath) : $xml->releases->release;
+      $release = $release[0];
       $filename = $project . '-' . (string)$release->version;
       $info = array(
         'download_link' => (string)$release->download_link,
