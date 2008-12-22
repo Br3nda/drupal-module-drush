@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-// $Id: drush.php,v 1.34 2008/12/07 03:29:15 weitzman Exp $
+// $Id: drush.php,v 1.35 2008/12/22 15:31:37 weitzman Exp $
 
 /**
  * @file
@@ -84,6 +84,9 @@ function drush_bootstrap($argc, $argv) {
       if (is_array($GLOBALS['override'])) {
         $GLOBALS['conf'] = array_merge($GLOBALS['conf'], $GLOBALS['override']);
       }
+
+      // We have changed bootstrap level, so re-detect command files.
+      drush_commandfile_cache_flush();
 
       // Login the specified user (if given).
       if (DRUSH_USER) {
@@ -187,6 +190,7 @@ function drush_drupal_bootstrap($drupal_root, $bootstrap = NULL) {
 
   // The bootstrap succeeded.
   define('DRUSH_DRUPAL_BOOTSTRAPPED', TRUE);
+
   return TRUE;
 }
 
