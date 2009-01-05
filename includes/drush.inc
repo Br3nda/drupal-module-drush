@@ -1,5 +1,5 @@
 <?php
-// $Id: drush.inc,v 1.3 2008/12/19 17:33:05 weitzman Exp $
+// $Id: drush.inc,v 1.4 2009/01/05 14:08:37 weitzman Exp $
 
 /**
  * @file
@@ -17,7 +17,7 @@ function drush_dispatch($commands) {
 
   // Special case for help command
   $show_help = FALSE;
-  if ($commands[0] == 'help') {
+  if (!isset($commands[0]) && $commands[0] == 'help') {
     $show_help = TRUE;
     array_shift($commands);
     (empty($commands)) ? drush_usage() : drush_show_help($commands);

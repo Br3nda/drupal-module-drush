@@ -1,5 +1,5 @@
 <?php
-// $Id: command.inc,v 1.6 2009/01/04 23:34:25 weitzman Exp $
+// $Id: command.inc,v 1.7 2009/01/05 14:08:37 weitzman Exp $
 
 /**
  * @file
@@ -27,7 +27,7 @@
  */
 function drush_get_commands() {
   $commands = drush_command_invoke_all('drush_command');
-
+  
   return $commands;
 }
 
@@ -213,6 +213,7 @@ function drush_commandfile_list() {
       }
     }
 
+    $list = array();
     // Scan for drush command files, load if found
     foreach (array_unique($searchpath) as $path) {
       if (is_dir($path)) {
@@ -224,6 +225,7 @@ function drush_commandfile_list() {
       }
     }
   }
+
   return _drush_commandfile_cache($list);
 }
 
