@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-// $Id: drush.php,v 1.35 2008/12/22 15:31:37 weitzman Exp $
+// $Id: drush.php,v 1.36 2009/01/06 04:48:51 weitzman Exp $
 
 /**
  * @file
@@ -173,23 +173,23 @@ function drush_drupal_bootstrap($drupal_root, $bootstrap = NULL) {
   // Change to Drupal root dir.
   chdir($drupal_root);
 
-  require_once DRUSH_DRUPAL_BOOTSTRAP;
+  if ($bootstrap != -1) {
+    require_once DRUSH_DRUPAL_BOOTSTRAP;
 
-  if (($conf_path = conf_path()) && !file_exists("./$conf_path/settings.php")) {
-    return FALSE;
-  }
+    if (($conf_path = conf_path()) && !file_exists("./$conf_path/settings.php")) {
+      return FALSE;
+    }
 
-  // The bootstrap can fail silently, so we catch that in a shutdown function.
-  register_shutdown_function('drush_shutdown');
-  if (is_null($bootstrap)) {
-    drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
+    // The bootstrap can fail silently, so we catch that in a shutdown function.
+    register_shutdown_function('drush_shutdown');
+    if (is_null($bootstrap)) {
+      drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
+      define('DRUSH_DRUPAL_BOOTSTRAPPED', TRUE);
+    }
+    else {
+      drupal_bootstrap($bootstrap);
+    }
   }
-  else {
-    drupal_bootstrap($bootstrap);
-  }
-
-  // The bootstrap succeeded.
-  define('DRUSH_DRUPAL_BOOTSTRAPPED', TRUE);
 
   return TRUE;
 }

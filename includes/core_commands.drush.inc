@@ -1,5 +1,5 @@
 <?php
-// $Id: core_commands.drush.inc,v 1.5 2008/12/19 14:27:32 weitzman Exp $
+// $Id: core_commands.drush.inc,v 1.6 2009/01/06 04:48:51 weitzman Exp $
 
 /**
  * @file
@@ -29,8 +29,6 @@ function core_commands_drush_command() {
   $items['status'] = array(
     'callback' => 'core_commands_status',
     'description' => 'Provides a birds-eye view of the current Drupal installation, if any.',
-    'core' => NULL,
-    'bootstrap' => 'system',
   );
   $items['script'] = array(
     'callback' => 'core_commands_script',
@@ -43,6 +41,7 @@ function core_commands_drush_command() {
   $items['dl'] = array(
     'callback' => 'core_commands_dl',
     'description' => 'Download core Drupal and modules like Drush Extras',
+    'bootstrap' => -1, // No bootstrap at all.
   );
   return $items;
 }
@@ -230,7 +229,8 @@ function core_commands_dl($full_project) {
     $version = empty($package['version']) ? '6.x' : $package['version'];
     $major_version = defined(DRUPAL_CORE_COMPATIBILITY) ? DRUPAL_CORE_COMPATIBILITY : substr($version, 0, 3);
     $project = $package['name'];
-    $url = UPDATE_DEFAULT_URL . "/$project/". $major_version;
+    // Don't rely on UPDATE_DEFAULT_URL since we might not be bootstrapped.
+    $url = 'http://updates.drupal.org/release-history' . "/$project/". $major_version;
     if ($xml = simplexml_load_file($url)) {
       $xpath = "/project/releases/release[version='$version']";
       $release = $package['version'] ? $xml->xpath($xpath) : $xml->releases->release;
