@@ -1,5 +1,5 @@
 <?php
-// $Id: environment.inc,v 1.1 2008/12/06 21:34:58 weitzman Exp $
+// $Id: environment.inc,v 1.2 2009/01/16 19:50:56 weitzman Exp $
 
 /**
  * @file
@@ -298,7 +298,7 @@ function drush_parse_args($args = array(), $arg_opts = array(), $default_options
 /**
  * Get the value for an option.
  *
- * If the first argument is an array, then it checks wether one of the options
+ * If the first argument is an array, then it checks whether one of the options
  * exists and return the value of the first one found. Useful for allowing both
  * -h and --host-name
  *
