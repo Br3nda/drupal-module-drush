@@ -1,5 +1,5 @@
 <?php
-// $Id: core_commands.drush.inc,v 1.6 2009/01/06 04:48:51 weitzman Exp $
+// $Id: core_commands.drush.inc,v 1.7 2009/01/25 23:40:16 grugnog Exp $
 
 /**
  * @file
@@ -95,7 +95,7 @@ function core_commands_cron_run() {
  */
 function core_commands_status() {
   if (defined('DRUSH_DRUPAL_ROOT')) {
-    drush_print(dt("Drupal !version is installed.", array('!version' => drush_drupal_version())));
+    drush_print(dt("Drupal !version is installed at !DRUSH_DRUPAL_ROOT.", array('!version' => drush_drupal_version(), '!DRUSH_DRUPAL_ROOT' => DRUSH_DRUPAL_ROOT)));
     if (DRUSH_URI != '') {
       drush_print(dt("Current site: !DRUSH_URI", array('!DRUSH_URI' => DRUSH_URI)));
     }
