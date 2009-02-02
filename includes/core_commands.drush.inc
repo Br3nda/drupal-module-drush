@@ -1,5 +1,5 @@
 <?php
-// $Id: core_commands.drush.inc,v 1.7 2009/01/25 23:40:16 grugnog Exp $
+// $Id: core_commands.drush.inc,v 1.8 2009/02/02 15:27:13 weitzman Exp $
 
 /**
  * @file
@@ -167,12 +167,12 @@ function core_commands_cache_clear() {
 
 function core_commands_dl_destination() {
   // If a URI is provided then we install to that specific site, otherwise we install to sites/all/modules
-  if (defined(DRUSH_URI)) {
+
+  if (defined('DRUSH_URI') && DRUSH_URI != FALSE) {
     $path = conf_path();
     return DRUSH_DRUPAL_ROOT .'/'. $path .'/modules/';
   }
-  
-  if (defined(DRUSH_DRUPAL_ROOT)) { // !file_exists($modulepath)
+  if (defined('DRUSH_DRUPAL_ROOT')) { // !file_exists($modulepath)
     $modulepath = DRUSH_DRUPAL_ROOT . '/sites/all/modules/';
   }
   else {
