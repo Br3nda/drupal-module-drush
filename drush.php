@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-// $Id: drush.php,v 1.36 2009/01/06 04:48:51 weitzman Exp $
+// $Id: drush.php,v 1.37 2009/02/03 01:34:00 adrian Exp $
 
 /**
  * @file
@@ -69,7 +69,7 @@ function drush_bootstrap($argc, $argv) {
   // Preliminary check on command descriptor
   list($command, $arguments) = drush_parse_command($GLOBALS['args']['commands']);
 
-  if ($drupal_root = drush_get_option(array('r', 'root'), drush_locate_root($path))) {
+  if (($drupal_root = drush_get_option(array('r', 'root'), drush_locate_root($path))) && $command) {
 
     drush_drupal_set_environment($drupal_root);
 
