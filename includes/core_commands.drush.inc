@@ -1,5 +1,5 @@
 <?php
-// $Id: core_commands.drush.inc,v 1.13 2009/02/03 05:04:35 weitzman Exp $
+// $Id: core_commands.drush.inc,v 1.14 2009/02/03 05:36:52 weitzman Exp $
 
 /**
  * @file
@@ -241,7 +241,7 @@ function core_commands_dl($full_project) {
     $version_default .= '.x';
 
     $version = empty($package['version']) ? $version_default : $package['version'];
-    $major_version = defined('DRUPAL_CORE_COMPATIBILITY') ? DRUPAL_CORE_COMPATIBILITY : substr($version, 0, 3);
+    $major_version = substr($version, 0, 3);
     $project = $package['name'];
     // Don't rely on UPDATE_DEFAULT_URL since we are not fully bootstrapped.
     $url = 'http://updates.drupal.org/release-history' . "/$project/". $major_version;
