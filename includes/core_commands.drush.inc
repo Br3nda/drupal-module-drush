@@ -1,5 +1,5 @@
 <?php
-// $Id: core_commands.drush.inc,v 1.9 2009/02/02 17:13:05 weitzman Exp $
+// $Id: core_commands.drush.inc,v 1.10 2009/02/03 03:06:08 weitzman Exp $
 
 /**
  * @file
@@ -167,8 +167,9 @@ function core_commands_cache_clear() {
 
 function core_commands_dl_destination() {
   // If a URI is provided then we install to that specific site, otherwise we install to sites/all/modules
-
-  if (defined('DRUSH_URI') && DRUSH_URI != FALSE) {
+  // TODO: we are never bootstrapped so the condition below is never TRUE.
+  if (defined('DRUSH_URI') && DRUSH_URI != FALSE && function_exists('conf_path')) {
+    var_dump(DRUSH_URI);
     $path = conf_path();
     return DRUSH_DRUPAL_ROOT .'/'. $path .'/modules/';
   }
