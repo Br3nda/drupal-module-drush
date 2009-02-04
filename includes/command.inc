@@ -1,5 +1,5 @@
 <?php
-// $Id: command.inc,v 1.11 2009/02/02 15:09:16 weitzman Exp $
+// $Id: command.inc,v 1.12 2009/02/04 16:36:03 adrian Exp $
 
 /**
  * @file
@@ -226,7 +226,7 @@ function drush_commandfile_list() {
         $files = drush_scan_directory($path, '\.drush\.inc$');
         foreach ($files as $filename => $info) {
           require_once($filename);
-          $list[] = basename($filename, '.drush.inc');
+          $list[$filename] = basename($filename, '.drush.inc');
         }
       }
     }
