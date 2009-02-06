@@ -1,5 +1,5 @@
 <?php
-// $Id: drush.inc,v 1.7 2009/02/06 00:52:02 weitzman Exp $
+// $Id: drush.inc,v 1.8 2009/02/06 03:22:45 weitzman Exp $
 
 /**
  * @file
@@ -234,7 +234,7 @@ function drush_show_help($commands) {
       if ($command[$key]) {
         drush_print(dt($value) . ':');
         foreach ($command[$key] as $name => $description) {
-          $rows[] = array($name, $description);
+          $rows[] = array($name, dt($description));
         }
         drush_print_table($rows, 2);
         unset($rows);
