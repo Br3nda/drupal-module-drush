@@ -1,5 +1,5 @@
 <?php
-// $Id: drush.inc,v 1.6 2009/02/05 23:41:39 weitzman Exp $
+// $Id: drush.inc,v 1.7 2009/02/06 00:52:02 weitzman Exp $
 
 /**
  * @file
@@ -85,11 +85,10 @@ function drush_drupal_major_version() {
  * Save a string to a temporary file. Does not depend on Drupal's API.
  *
  * @param string $data 
- * @param string $filename 
  * @return string
  *   A path to the file.
  */
-function drush_save_data_to_temp_file($data, $filename) {
+function drush_save_data_to_temp_file($data) {
   static $fp;
 
   $fp = tmpfile();
