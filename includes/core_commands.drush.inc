@@ -1,5 +1,5 @@
 <?php
-// $Id: core_commands.drush.inc,v 1.22 2009/02/16 04:59:19 adrian Exp $
+// $Id: core_commands.drush.inc,v 1.23 2009/02/16 11:36:20 adrian Exp $
 
 /**
  * @file
@@ -124,7 +124,6 @@ function _core_commands_site_credentials() {
       case 6:
         if (isset($GLOBALS['db_url'])) {
           $parts = parse_url($GLOBALS['db_url']);
-          print_r($parts);
           $db_driver = $parts['scheme'];
           $db_user = $parts['user'];
           $db_host = $parts['host'];
