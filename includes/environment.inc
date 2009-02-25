@@ -1,5 +1,5 @@
 <?php
-// $Id: environment.inc,v 1.2 2009/01/16 19:50:56 weitzman Exp $
+// $Id: environment.inc,v 1.3 2009/02/25 16:51:00 adrian Exp $
 
 /**
  * @file
@@ -52,6 +52,12 @@ function drush_load_config() {
         require_once($config);
         $args['options'] = array_merge($options, $args['options']);
       }
+    }
+  }
+  if (DRUSH_BACKEND) {
+    $stdin_options = _drush_backend_get_stdin();
+    if (is_array($stdin_options)) {
+      $args['options'] = array_merge($args['options'], $stdin_options);
     }
   }
 }
