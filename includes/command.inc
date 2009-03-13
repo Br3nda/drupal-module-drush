@@ -1,5 +1,5 @@
 <?php
-// $Id: command.inc,v 1.15 2009/03/12 15:39:06 grugnog Exp $
+// $Id: command.inc,v 1.16 2009/03/13 10:13:48 adrian Exp $
 
 /**
  * @file
@@ -30,9 +30,6 @@ function drush_get_commands() {
   
   // Filter out commands which are invalid for the current version of core Drupal.
   $commands = drush_enforce_requirement_core($commands);
-  
-  // Filter out commands which are invalid for the current bootstrap level.
-  $commands = drush_enforce_requirement_bootstrap($commands);
   
   // Filter out commands which are missing their dependant Drupal modules.
   $commands = drush_enforce_requirement_drupal_dependencies($commands);
@@ -397,18 +394,3 @@ function drush_enforce_requirement_core($commands) {
   return $valid;
 }
 
-
-// Return commands that are valid for the current bootstrap level.
-function drush_enforce_requirement_bootstrap($commands) {
-  global $bootstrap_level;
-
-  $valid = array();
-  if (!empty($commands)) {
-    foreach ($commands as $key => $command) {
-      if ((empty($command['bootstrap']) && defined('DRUSH_DRUPAL_BOOTSTRAPPED')) || (is_numeric($command['bootstrap']) && $command['bootstrap'] <= $bootstrap_level)) {
-        $valid[$key] = $command;
-      }
-    }
-  }
-  return $valid;
-}
