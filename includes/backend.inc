@@ -1,5 +1,5 @@
 <?php
-// $Id: backend.inc,v 1.1 2009/02/25 16:51:00 adrian Exp $
+// $Id: backend.inc,v 1.2 2009/03/20 16:10:54 adrian Exp $
 
 /**
  * @file Drush backend API
@@ -71,7 +71,7 @@ function drush_backend_output() {
   $data['error_log'] = drush_get_error_log();
 
   // Return the options that were set at the end of the process.
-  $data['options']  = $GLOBALS['args']['options'];
+  $data['context']  = drush_get_merged_options();
   if (!DRUSH_QUIET) {
     printf(DRUSH_BACKEND_OUTPUT_DELIMITER, json_encode($data));
   }
