@@ -1,5 +1,5 @@
 <?php
-// $Id: drush.inc,v 1.18 2009/03/26 02:26:22 adrian Exp $
+// $Id: drush.inc,v 1.19 2009/03/26 04:36:23 adrian Exp $
 
 /**
  * @file
@@ -478,7 +478,7 @@ function drush_log($message, $type = 'notice', $error = null) {
      'timestamp' => time()
    );
   $entry['error'] = $error;
-  $log[] = $item;
+  $log[] = $entry;
   return _drush_print_log($entry);
 }
 
