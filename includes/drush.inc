@@ -1,5 +1,5 @@
 <?php
-// $Id: drush.inc,v 1.17 2009/03/26 01:41:21 adrian Exp $
+// $Id: drush.inc,v 1.18 2009/03/26 02:26:22 adrian Exp $
 
 /**
  * @file
@@ -472,12 +472,12 @@ function _drush_get_table_column_widths($table) {
  */
 function drush_log($message, $type = 'notice', $error = null) {
   $log =& drush_get_context('DRUSH_LOG', array());
-  $item = array(
+  $entry = array(
      'type' => $type, 
      'message' => $message, 
      'timestamp' => time()
    );
-  $item['error'] = $error;
+  $entry['error'] = $error;
   $log[] = $item;
   return _drush_print_log($entry);
 }
