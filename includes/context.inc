@@ -1,5 +1,5 @@
 <?php
-// $Id: context.inc,v 1.2 2009/03/24 15:22:43 weitzman Exp $
+// $Id: context.inc,v 1.3 2009/03/26 01:41:21 adrian Exp $
 /**
  * @file
  * The Drush context API implementation.
@@ -363,7 +363,7 @@ function drush_save_config($context) {
 
     $fp = fopen($filename, "w+");
     if (!$fp) {
-      return drush_set_error(DRUSH_PERM_ERROR, dt('Drushrc (!filename) could not be written', array('!filename' => $filename)));
+      return drush_set_error('DRUSH_PERM_ERROR', dt('Drushrc (!filename) could not be written', array('!filename' => $filename)));
     }
     else {
       fwrite($fp, "<?php\n");
